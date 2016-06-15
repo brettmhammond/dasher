@@ -1,0 +1,76 @@
+body{
+  margin:0;
+  padding:0;
+}
+
+ul{
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+
+#clock{
+  text-align: center;
+  color: white;
+  font-size: 45px;
+  padding-top: 75px;
+  height: 175px;
+  width: 350px;
+  margin-bottom: 50px;
+  background-color: black;
+}
+
+.projects{
+  color: white;
+  height: 250px;
+  width: 350px;
+  margin-bottom: 50px;
+
+  .name{
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+  &.failed{
+    background-color: red;
+    border: 1px solid #730E15;
+  }
+  &.canceled{
+    color: black;
+    background-color: yellow;
+    border: 1px solid yellowgreen;
+  }
+  &.success{
+    background-color: green;
+    border: 1px solid green;
+  }
+
+  .details{
+    .build-num{
+      font-size: 20px;
+    }
+  }
+
+  ul{
+    li{
+      height: 25px;
+      width: 25px;
+      display: inline-block;
+      border: 1px solid black;
+
+      &:nth-of-type(1n+11) {
+        display: none;
+      }
+
+      &.failed{
+        background-color: red;
+      }
+      &.canceled{
+        background-color: yellow;
+      }
+      &.success{
+        background-color: green;
+      }
+    }
+  }
+}

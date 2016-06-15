@@ -1,0 +1,53 @@
+
+<% @projects.each do |project| %>
+    <div class="projects <%= project.builds.first.outcome %>">
+      <div class="name">
+        <%= project.name %>
+      </div>
+
+      <div class="details">
+        <div class="build-num">
+          Build #<%= project.builds.first.build_num %>
+        </div>
+        <div>
+          <%= project.builds.first.committer_name %>
+        </div>
+        <div>
+          <%= project.builds.first.subject %>
+        </div>
+
+
+
+
+      </div>
+
+      <ul class="outcomes">
+        <% project.builds.each do |build| %>
+            <li class="<%= build.outcome %>">&nbsp;</li>
+        <% end %>
+      </ul>
+    </div>
+
+
+<% end %>
+
+
+<div id="clock"></div>
+
+<script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('clock').innerHTML =
+                h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
